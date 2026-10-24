@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>MalawiZim Connect</title>
+
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: #f5f8f4;
+      color: #24352a;
+    }
+
+    header {
+      background: #14532d;
+      color: white;
+      padding: 22px 16px;
+      text-align: center;
+    }
+
+    header h1 {
+      margin: 0;
+      font-size: 28px;
+    }
+
+    header p {
+      margin-bottom: 0;
+    }
+
+    .hero {
+      padding: 35px 20px;
+      text-align: center;
+      background: #e5f2e5;
+    }
+
+    .hero h2 {
+      font-size: 27px;
+    }
+
+    .hero p {
+      line-height: 1.6;
+    }
+
+    .search {
+      width: 100%;
+      max-width: 500px;
+      padding: 14px;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      font-size: 16px;
+    }
+
+    .container {
+      max-width: 1000px;
+      margin: auto;
+      padding: 20px;
+    }
+
+    .products {
+      display: grid;
+      grid-template-columns:
+        repeat(auto-fit, minmax(145px, 1fr));
+      gap: 16px;
+    }
+
+    .card {
+      background: white;
+      border-radius: 12px;
+      padding: 18px;
+      text-align: center;
+      box-shadow: 0 2px 8px #00000012;
+    }
+
+    .icon {
+      font-size: 42px;
+    }
+
+    .card h3 {
+      font-size: 18px;
+    }
+
+    .button {
+      display: inline-block;
+      background: #16803c;
+      color: white;
+      text-decoration: none;
+      padding: 12px 18px;
+      border-radius: 7px;
+      margin-top: 10px;
+    }
+
+    .seller {
+      margin-top: 30px;
+      padding: 22px;
+      background: white;
+      border-radius: 12px;
+    }
+
+    footer {
+      margin-top: 35px;
+      background: #14532d;
+      color: white;
+      padding: 22px;
+      text-align: center;
+    }
+  </style>
+</head>
+
+<body>
+
+<header>
+  <h1>MalawiZim Connect</h1>
+  <p>Connecting Businesses. Expanding Markets.</p>
+</header>
+
+<section class="hero">
+  <h2>Discover Products from Malawi</h2>
+
+  <p>
+    Connecting Malawian farmers, traders and manufacturers
+    with buyers across Zimbabwe.
+  </p>
+
+  <input
+    id="search"
+    class="search"
+    type="search"
+    placeholder="Search beans, groundnuts, rice..."
+    oninput="searchProducts()"
+    aria-label="Search products"
+  >
+</section>
+
+<main class="container">
+
+  <h2>Explore Products</h2>
+
+  <div class="products" id="products">
+
+    <article class="card" data-name="beans uwemi farm">
+      <div class="icon">🫘</div>
+      <h3>Beans</h3>
+      <p>Supplier: Uwemi Farm</p>
+      <p>Malawi</p>
+      <p>Price available on request</p>
+      <a
+        class="button"
+        href="mailto:info@example.com?subject=Beans%20enquiry"
+      >
+        Request Price
+      </a>
+    </article>
+
+    <article class="card" data-name="groundnuts">
+      <div class="icon">🥜</div>
+      <h3>Groundnuts</h3>
+      <p>Malawian suppliers</p>
+      <p>Bulk enquiries welcome</p>
+    </article>
+
+    <article class="card" data-name="soya beans soybeans">
+      <div class="icon">🌱</div>
+      <h3>Soya Beans</h3>
+      <p>Malawian suppliers</p>
+      <p>Request a quotation</p>
+    </article>
+
+    <article class="card" data-name="rice">
+      <div class="icon">🌾</div>
+      <h3>Rice</h3>
+      <p>Malawian suppliers</p>
+      <p>Bulk enquiries welcome</p>
+    </article>
+
+    <article class="card" data-name="manufactured goods">
+      <div class="icon">📦</div>
+      <h3>Manufactured Goods</h3>
+      <p>Explore products from Malawi</p>
+    </article>
+
+  </div>
+
+  <section class="seller">
+    <h2>Are You a Seller in Malawi?</h2>
+
+    <p>
+      Reach buyers in Zimbabwe by showcasing your products
+      on MalawiZim Connect.
+    </p>
+
+    <a class="button" href="mailto:info@example.com?subject=Seller%20registration">
+      Register Your Interest
+    </a>
+  </section>
+
+</main>
+
+<footer>
+  <p>MalawiZim Connect</p>
+  <p>Connecting Malawi and Zimbabwe through trade.</p>
+</footer>
+
+<script>
+  function searchProducts() {
+    const query = document
+      .getElementById("search")
+      .value
+      .toLowerCase()
+      .trim();
+
+    document.querySelectorAll(".card").forEach(card => {
+      const name = card.dataset.name.toLowerCase();
+      card.style.display = name.includes(query) ? "" : "none";
+    });
+  }
+</script>
+
+</body>
+</html>
